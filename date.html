@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Random Numbers and Current Date</p>
+    <div id="output"></div>
+    
+    <script>
+        function generateRandomSet(count, min, max) {
+            let randomNumbers = [];
+            for (let i = 0; i < count; i++) {
+                // Generate random number between min and max
+                let rand = Math.random() * (max - min) + min;
+                // Round it to 2 decimal places
+                rand = rand.toFixed(2);
+                randomNumbers.push(rand);
+            }
+            return randomNumbers;
+        }
+    
+        function printCurrentDate() {
+            const now = new Date();
+            return now.toLocaleString(); // Or use now.toDateString() for just date
+        }
+    
+        function displayResults() {
+            const outputDiv = document.getElementById("output");
+    
+            // Generate a random number
+            const singleRandom = Math.random() * 100;
+            const roundedSingle = Math.round(singleRandom);
+    
+            // Generate a set of 5 random numbers between 10 and 50
+            const randomSet = generateRandomSet(5, 10, 50);
+    
+            // Get the current date
+            const currentDate = printCurrentDate();
+    
+            // Display results
+            outputDiv.innerHTML = `
+                <strong>Single Random Number (rounded):</strong> ${roundedSingle}<br>
+                <strong>Random Number Set (5 numbers, rounded to 2 decimals):</strong> ${randomSet.join(", ")}<br>
+                <strong>Current Date & Time:</strong> ${currentDate}
+            `;
+        }
+    
+        // Call the function to show results
+        displayResults();
+    </script>
+    🔍 Features Explained:
+    Math.random() – generates a random number between 0 and 1.
+    
+    Math.round() – rounds to the nearest integer.
+    
+    .toFixed(2) – keeps 2 decimal places.
+    
+    Date and .toLocaleString() – gives you the full date and time.
+    
+     
+</body>
+</html>
